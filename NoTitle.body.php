@@ -13,11 +13,13 @@ if (!defined('MEDIAWIKI')) {
 
 class NoTitle {
 	public static function killTitle(&$parser, &$text) {
-		global $wgOut;
 		$mw = MagicWord::get('MAG_NOTITLE');
 		if ($mw -> matchAndRemove($text)) {
-			$wgOut -> addInlineStyle('.firstHeading, .subtitle, #siteSub, #contentSub, .pagetitle { display:none; }');
+			global $wgOut;
+			$selector = "h1, .firstHeading, .subtitle, #siteSub, #contentSub, .pagetitle";
+			$wgOut -> addInlineScript("$($selector).hide();");
+			$wgOut -> addInlineStyle("$selector{display:none;}");
 		}
-		return True;
+		return TRUE;
 	}
 }

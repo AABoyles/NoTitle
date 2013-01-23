@@ -29,4 +29,3 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:NoTitle',
 	'descriptionmsg' => 'notitle-desc',
 );
-
